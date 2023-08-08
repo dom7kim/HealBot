@@ -150,7 +150,7 @@ agent_executor = AgentExecutor.from_agent_and_tools(agent=agent,
                                                     verbose=True,
                                                     memory=memory)
 
-if prompt := st.chat_input(placeholder="How can I treat a sprained ankle?"):
+if prompt := st.chat_input(placeholder="What's the best way to manage a common cold?"):
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
 
