@@ -1,16 +1,15 @@
+from langchain import LLMChain
 from langchain.llms import OpenAI
 from langchain.callbacks import StreamlitCallbackHandler
-import streamlit as st
-
-from langchain import LLMChain
 from langchain.tools import DuckDuckGoSearchRun
 from langchain.prompts import StringPromptTemplate
 from langchain.agents import Tool, AgentExecutor, LLMSingleActionAgent, AgentOutputParser
 from langchain.schema import AgentAction, AgentFinish
-from typing import List, Tuple, Union 
-import re
 from langchain.memory import ConversationBufferMemory
 from langchain.memory.chat_message_histories import StreamlitChatMessageHistory
+from typing import List, Tuple, Union 
+import streamlit as st
+import re
 
 st.markdown("<h1 style='font-size: 24px;'>🦜️🔗 HealBot: Expert Medical Advice at Your Fingertips </h1>", unsafe_allow_html=True)
 
@@ -28,7 +27,7 @@ tools = [
     )
 ]
 
-# Set up the base template
+# Base template
 template_with_history = """Please answer the following question to the best of your ability, speaking as a compassionate medical professional. You have access to the tools listed below:
 
 {tools}
@@ -116,8 +115,6 @@ class CustomOutputParser(AgentOutputParser):
 prompt_with_history = CustomPromptTemplate(
     template=template_with_history,
     tools=tools,
-    # This omits the `agent_scratchpad`, `tools`, and `tool_names` variables because those are generated dynamically
-    # This includes the `intermediate_steps` variable because that is needed
     input_variables=["input", "intermediate_steps", "history"]
 )
 
