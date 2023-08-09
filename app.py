@@ -28,7 +28,7 @@ tools = [
 ]
 
 # Base template
-template_with_history = """Please answer the following question to the best of your ability, speaking as a compassionate medical professional. You have access to the tools listed below:
+template = """Please answer the following question to the best of your ability, speaking as a compassionate medical professional. You have access to the tools listed below:
 
 {tools}
 
@@ -112,8 +112,8 @@ class CustomOutputParser(AgentOutputParser):
         # Return the action and action input
         return AgentAction(tool=action, tool_input=action_input, log=llm_output)
 
-prompt_with_history = CustomPromptTemplate(
-    template=template_with_history,
+prompt = CustomPromptTemplate(
+    template=template,
     tools=tools,
     input_variables=["input", "intermediate_steps", "history"]
 )
@@ -129,7 +129,7 @@ for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
 
 llm = OpenAI(temperature=0, streaming=True)
-llm_chain = LLMChain(llm=llm, prompt=prompt_with_history)
+llm_chain = LLMChain(llm=llm, prompt=prompt)
 tool_names = [tool.name for tool in tools]
 agent = LLMSingleActionAgent(
     llm_chain=llm_chain, 
