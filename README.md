@@ -6,7 +6,7 @@ HealBot is a virtual medical assistant designed to provide accurate and compassi
 
 ## Features
 
-- **Empathetic Medical Guidance**: HealBot answers medical questions in the manner of a compassionate healthcare professional.
+- **Medical Guidance**: HealBot answers medical questions in the manner of a healthcare professional.
 - **Web Search Integration**: Utilizes search engines to fetch relevant medical information from trusted sources like [Healthline](https://www.healthline.com/) and [WebMD](https://www.webmd.com/).
 - **Interactive Chat Interface**: Engages users through an intuitive chat interface, offering a seamless experience.
 - **Flexible Query Handling**: Adapts to various health-related inquiries and provides detailed responses.
