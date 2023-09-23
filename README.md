@@ -2,7 +2,7 @@
 
 HealBot is a virtual medical assistant designed to provide accurate and compassionate medical advice. Utilizing the power of AI and a curated set of medical information sources, HealBot can answer a wide range of health-related questions, guiding users with professional insights.
 
-![HealBot Screenshot](screenshot.png)
+![HealBot Screenshot](assets/screenshot.png)
 
 ## Features
 
